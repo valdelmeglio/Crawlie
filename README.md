@@ -32,8 +32,7 @@ It fetches the given URL and returns it as a string.
 ```Java
 private static String normalizeUrl(String url)
 ```
-This is a simple URL normalizer that takes the URL given  
-as input and makes easy to transform it to an URl object.
+This is a simple URL normalizer that takes the URL given  as input and makes easy to transform it to an URl object.
 
 ## Running
 You can both run the code with your preferred IDE or running the compiled Jar.
