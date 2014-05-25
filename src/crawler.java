@@ -2,8 +2,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
@@ -120,26 +118,6 @@ public class crawler {
         }
         return url;
         
-    	
-        /*
-    	String urlString = new String();
-        if (!url.startsWith("http")) {
-            url = "http://" + url;
-        }
-    	try {
-        	URL urlToNormalize = new URL(url);
-        	URI uri = new URI(urlToNormalize.getProtocol(), urlToNormalize.getUserInfo(), urlToNormalize.getHost(), urlToNormalize.getPort(), urlToNormalize.getPath(), urlToNormalize.getQuery(), urlToNormalize.getRef());
-			urlString = uri.toString();
-			
-		} 
-    	  catch (URISyntaxException e) {
-			
-			e.printStackTrace();
-		} catch (MalformedURLException e) {
-			System.err.println("You provided an invalid URL.");
-			
-		}
-    	return urlString;	*/
     }
 
 
