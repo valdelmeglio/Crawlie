@@ -53,7 +53,19 @@ public class crawler {
         return urls;
     }
 
-
+   private static LinkedHashSet<String> extractMails(List<URL> urls){
+	   LinkedHashSet<String> mails = new LinkedHashSet<String>();   
+       Pattern p = Pattern.compile("[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})", Pattern.DOTALL);
+       Iterator<URL> iterator = urls.iterator();
+       while (iterator.hasNext() ) {  
+    	 Matcher m = p.matcher(fetchContent(iterator.next()));
+    	 if (m.find() && !mails.contains(m.group(0))) {
+    		 mails.add(m.group(0));
+    		 System.out.println(m.group(0));
+    	 }
+       }
+      return mails; 	   
+   }
     
     /* --------------------------------------------------------
   	 * It takes an URL as input and extracts all the links from 
@@ -163,6 +175,14 @@ public class crawler {
               System.out.println(i + ") " + iterator.next());	           	
               i++;
             }
+            /*
+            LinkedHashSet<String> mail = extractMails(discovered);;
+            Iterator<String> iterator2 = mail.iterator();
+            while (iterator2.hasNext()) {     
+              System.out.println(i + ") " + iterator2.next());	           	
+              i++;
+            }
+            */
         } 
         // Multiple exceptions in one block are only supported in java 1.7
         catch (MalformedURLException e) {
